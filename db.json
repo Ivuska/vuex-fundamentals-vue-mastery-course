@@ -69,6 +69,16 @@
       "date": "s",
       "time": "s",
       "organizer": "Ivka"
+    },
+    {
+      "id": "cf3c95c2-8186-4772-80bd-8f26e9c85519",
+      "category": "education",
+      "title": "Uc se pilnym byti",
+      "description": "huraaaa",
+      "location": "Praha",
+      "date": "22.2.2022",
+      "time": "22:22",
+      "organizer": "Ivka"
     }
   ]
 }

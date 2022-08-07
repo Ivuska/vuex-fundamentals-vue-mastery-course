@@ -62,7 +62,6 @@
 
 <script>
 import { v4 as uuidv4 } from "uuid";
-import EventService from "@/services/EventService.js";
 
 export default {
   data () {
@@ -97,13 +96,9 @@ export default {
         id: uuidv4(),
         organizer: this.$store.state.user,
       }
-      EventService.postEvent(event)
-        .then(() => {
-          this.$store.commit('ADD_EVENT', event);
-        })
-        .catch(error => {
-          console.log(error);
-        })
+      // Whenever we run the action, we dispatch it. Former mutation is now an action in store/index.js.
+      // Actions are better because of future-proof of the app and increases its scalability.
+      this.$store.dispatch('createEvent', event);
     }
   }
 }
