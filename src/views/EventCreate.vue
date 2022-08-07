@@ -56,7 +56,6 @@
 
     <button type="submit">Submit</button>
   </form>
-  <div>{{ $store.state.events }}</div>
 
 </div>
 </template>
