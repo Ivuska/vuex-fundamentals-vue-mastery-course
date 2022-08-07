@@ -11,6 +11,13 @@ export default {
   props: ['id'],
   created() {
     this.$store.dispatch('fetchEvent', this.id)
+      .catch(error => {
+          this.$router.push({
+            name: 'ErrorDisplay',
+            // Error is fed into ErrorDisplay as a prop.
+            params: { error:error }
+          })
+        })
   },
   computed: {
     event() {

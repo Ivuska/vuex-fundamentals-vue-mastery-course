@@ -96,9 +96,22 @@ export default {
         id: uuidv4(),
         organizer: this.$store.state.user,
       }
-      // Whenever we run the action, we dispatch it. Former mutation is now an action in store/index.js.
+      // Whenever we run the action, we dispatch it from the store. Former mutation is now an action in store/index.js.
       // Actions are better because of future-proof of the app and increases its scalability.
-      this.$store.dispatch('createEvent', event);
+      this.$store.dispatch('createEvent', event)
+        .then(() => {
+          this.$router.push({
+            name: 'EventDetails',
+            params: { id: event.id }
+          })
+        })
+        .catch(error => {
+          this.$router.push({
+            name: 'ErrorDisplay',
+            // Error is fed into ErrorDisplay as a prop.
+            params: { error:error }
+          })
+        })
     }
   }
 }

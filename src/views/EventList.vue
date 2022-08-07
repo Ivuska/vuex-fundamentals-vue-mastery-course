@@ -14,7 +14,14 @@ export default {
     EventCard
   },
   created() {
-    this.$store.dispatch('fetchEvents');
+    this.$store.dispatch('fetchEvents')
+      .catch(error => {
+          this.$router.push({
+            name: 'ErrorDisplay',
+            // Error is fed into ErrorDisplay as a prop.
+            params: { error:error }
+          })
+        })
   },
   computed: {
     events() {
